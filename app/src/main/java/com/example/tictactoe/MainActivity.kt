@@ -30,7 +30,16 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun resetGame() {
-        TODO("Not yet implemented")
+        isPlayerX = true
+        for (i in 0..2) {
+            for (j in 0..2) {
+                board[i][j] = ""
+                buttons[i][j].text = ""
+                buttons[i][j].isEnabled = true
+            }
+        }
+        resultTextView.visibility = View.GONE
+        playAgainButton.visibility = View.GONE
     }
 
     private fun initBoard() {
