@@ -85,7 +85,28 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun checkWin(): Boolean {
-        TODO("Not yet implemented")
-    }
+        // Check rows
+        for (i in 0..2) {
+            if (board[i][0].isNotEmpty() && board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
+                return true
+            }
+        }
 
+        // Check columns
+        for (i in 0..2) {
+            if (board[0][i].isNotEmpty() && board[0][i] == board[1][i] && board[0][i] == board[2][i]) {
+                return true
+            }
+        }
+
+        // Check diagonals
+        if (board[0][0].isNotEmpty() && board[0][0] == board[1][1] && board[0][0] == board[2][2]) {
+            return true
+        }
+        if (board[0][2].isNotEmpty() && board[0][2] == board[1][1] && board[0][2] == board[2][0]) {
+            return true
+        }
+
+        return false
+    }
 }
