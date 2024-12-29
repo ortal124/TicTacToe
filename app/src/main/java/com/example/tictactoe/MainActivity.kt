@@ -77,8 +77,14 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun checkDraw(): Boolean {
-        TODO("Not yet implemented")
+        for (i in 0..2) {
+            for (j in 0..2) {
+                if (board[i][j].isEmpty()) return false
+            }
+        }
+        return true
     }
+
 
     private fun disableAllButtons() {
         TODO("Not yet implemented")
