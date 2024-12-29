@@ -1,4 +1,4 @@
-git apackage com.example.tictactoe
+package com.example.tictactoe
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
