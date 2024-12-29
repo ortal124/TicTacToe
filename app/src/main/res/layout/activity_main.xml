@@ -1,99 +1,115 @@
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tic Tac Toe"
-        android:textSize="24sp"
+        android:text="@string/tic_tac_toe"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="16dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:padding="32dp"/>
 
     <GridLayout
         android:id="@+id/gameBoard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:rowCount="3"
-        android:columnCount="3">
+        android:columnCount="3"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/resultTextView"
+        app:layout_constraintDimensionRatio="1:1">
 
         <Button
             android:id="@+id/button_00"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="0,0" />
+            android:layout_margin="2dp" />
 
         <Button
             android:id="@+id/button_01"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="0,1" />
+            android:layout_margin="2dp" />
 
         <Button
             android:id="@+id/button_02"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="0,2" />
+            android:layout_margin="2dp" />
 
         <Button
-            android:id="@+id/button_10"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/button_03"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="1,0" />
+            android:layout_margin="2dp" />
 
         <Button
-            android:id="@+id/button_11"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/button_04"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="1,1" />
+            android:layout_margin="2dp" />
 
         <Button
-            android:id="@+id/button_12"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/button_05"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="1,2" />
+            android:layout_margin="2dp" />
 
         <Button
-            android:id="@+id/button_20"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/button_06"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="2,0" />
+            android:layout_margin="2dp" />
 
         <Button
-            android:id="@+id/button_21"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/button_07"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="2,1" />
+            android:layout_margin="2dp" />
 
         <Button
-            android:id="@+id/button_22"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/button_08"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:textSize="24sp"
-            android:layout_margin="4dp"
-            android:tag="2,2" />
+            android:layout_margin="2dp" />
 
     </GridLayout>
 
@@ -103,14 +119,19 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="18sp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/gameBoard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone" />
 
     <Button
         android:id="@+id/playAgainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Again"
+        android:text="@string/play_again"
+        app:layout_constraintTop_toBottomOf="@id/resultTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"
         android:onClick="resetGame" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
