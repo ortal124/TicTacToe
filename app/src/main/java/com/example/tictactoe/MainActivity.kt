@@ -33,6 +33,24 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun initBoard() {
-        TODO("Not yet implemented")
+        board = Array(3) { Array(3) { "" } } // Initialize the board with empty strings
+        buttons = Array(3) { Array(3) { Button(this) } } // Initialize button array
+
+        for (i in 0..2) {
+            for (j in 0..2) {
+                val buttonID = "button_$i$j"
+                val resID = resources.getIdentifier(buttonID, "id", packageName)
+                buttons[i][j] = findViewById(resID)
+
+                // Set the onClick listener for each button
+                buttons[i][j].setOnClickListener {
+                    makeMove(i, j)
+                }
+            }
+        }
+    }
+
+    private fun makeMove(i: Int, j: Int) {
+
     }
 }
