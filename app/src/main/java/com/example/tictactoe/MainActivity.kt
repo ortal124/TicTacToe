@@ -1,6 +1,7 @@
 package com.example.tictactoe
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -50,7 +51,41 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun makeMove(i: Int, j: Int) {
+    private fun makeMove(row: Int, col: Int) {
+        // Check if the button is already clicked
+        if (board[row][col].isNotEmpty()) return
 
+        // Update the board and button text
+        board[row][col] = if (isPlayerX) "X" else "O"
+        buttons[row][col].text = board[row][col]
+        buttons[row][col].isEnabled = false
+
+        // Check for a win or draw
+        if (checkWin()) {
+            resultTextView.text = if (isPlayerX) "Player X wins!" else "Player O wins!"
+            resultTextView.visibility = View.VISIBLE
+            playAgainButton.visibility = View.VISIBLE
+            disableAllButtons()
+        } else if (checkDraw()) {
+            resultTextView.text = "It's a draw!"
+            resultTextView.visibility = View.VISIBLE
+            playAgainButton.visibility = View.VISIBLE
+        } else {
+            // Change turn
+            isPlayerX = !isPlayerX
+        }
     }
+
+    private fun checkDraw(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    private fun disableAllButtons() {
+        TODO("Not yet implemented")
+    }
+
+    private fun checkWin(): Boolean {
+        TODO("Not yet implemented")
+    }
+
 }
