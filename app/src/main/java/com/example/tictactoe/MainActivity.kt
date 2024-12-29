@@ -85,9 +85,12 @@ class MainActivity : ComponentActivity() {
         return true
     }
 
-
     private fun disableAllButtons() {
-        TODO("Not yet implemented")
+        for (i in 0..2) {
+            for (j in 0..2) {
+                buttons[i][j].isEnabled = false
+            }
+        }
     }
 
     private fun checkWin(): Boolean {
