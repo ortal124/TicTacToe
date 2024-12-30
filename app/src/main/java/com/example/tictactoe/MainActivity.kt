@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.core.content.ContextCompat
 
 class MainActivity : ComponentActivity() {
     private var isPlayerX = true
@@ -36,6 +37,7 @@ class MainActivity : ComponentActivity() {
                 board[i][j] = ""
                 buttons[i][j].text = ""
                 buttons[i][j].isEnabled = true
+                buttons[i][j].setBackgroundColor(ContextCompat.getColor(buttons[i][j].context, R.color.light_gray))
             }
         }
         resultTextView.visibility = View.GONE
@@ -54,18 +56,20 @@ class MainActivity : ComponentActivity() {
 
                 // Set the onClick listener for each button
                 buttons[i][j].setOnClickListener {
-                    makeMove(i, j)
+                    makeMove(i, j, buttons[i][j])
                 }
             }
         }
     }
 
-    private fun makeMove(row: Int, col: Int) {
+    private fun makeMove(row: Int, col: Int, button: Button) {
         // Check if the button is already clicked
         if (board[row][col].isNotEmpty()) return
 
         // Update the board and button text
+        val icon = if (isPlayerX) R.drawable.xicon else R.drawable.oicon
         board[row][col] = if (isPlayerX) "X" else "O"
+        button.setBackgroundResource(icon)
         buttons[row][col].text = board[row][col]
         buttons[row][col].isEnabled = false
 
